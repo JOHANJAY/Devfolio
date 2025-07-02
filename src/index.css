@@ -1,0 +1,14 @@
+@config "../tailwind.config.js";
+@import "tailwindcss";
+
+:root {
+  --bg: @theme colors.base.light;
+  --text: @theme colors.text.light;
+  --accent: @theme colors.retroRed;
+}
+
+.dark {
+  --bg: @theme colors.base.dark;
+  --text: @theme colors.text.dark;
+  --accent: @theme colors.retroYellow;
+}
