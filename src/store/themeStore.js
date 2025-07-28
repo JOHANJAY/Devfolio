@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 export const useThemeStore = create((set) => ({
-  isDark: false,
+  isDark: true,
   toggleTheme: () =>
     set((state) => {
       const newIsDark = !state.isDark;
@@ -11,9 +11,6 @@ export const useThemeStore = create((set) => ({
       } else {
         document.documentElement.classList.remove("dark");
       }
-
-      console.log("Dark mode is now:", newIsDark);
-      console.log("HTML classes:", document.documentElement.classList);
 
       return { isDark: newIsDark };
     }),

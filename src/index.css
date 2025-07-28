@@ -11,11 +11,67 @@
   --color-retroBlue: #0077b6;
   --color-retroYellow: #f7c948;
   --color-retroCream: #fff1e6;
-  --color-retroBrown: #6a4e42;
+  --color-retroBlue-2: #084160;
 
   --font-retro: "Press Start 2P", monospace;
   --font-headline: "Caveat", cursive;
   --font-body: "IBM Plex Sans", sans-serif;
+
+  --grid-wrapper: 24px 1fr 24px;
+ 
+  --grid-fullbleed: 1fr;
 }
 /* ...existing code... */
 
+@layer base {
+  body {
+    @apply bg-base-light dark:bg-base-dark text-text-dark dark:text-text-light pt-5;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-body;
+  }
+  p {
+    @apply font-body;
+  }
+  strong{
+    @apply font-retro
+  }
+  .retro-font {
+    @apply font-retro;
+  }
+}
+
+
+
+@layer utilities {
+    .wrapper {
+    @apply grid grid-cols-[24px_1fr_24px] col-span-2 
+  }
+
+   .wrapper > * {
+    grid-column: 2;
+  }
+
+  .wrapper > .fullbleed {
+    grid-column: 1 / -1;
+  }
+
+  .LG{
+    @apply lg:grid-cols-[1fr_min(100%-80px,1024px)1fr]
+  }
+}
+
+img {
+  display: block;
+  margin-inline: auto;
+  color: #084160;
+}
+
+html{
+  scroll-behavior: smooth;
+}
