@@ -1,35 +1,23 @@
-import { useEffect, useState } from "react";
-import { client } from "../sanity/client";
-import { sanityStore } from "../store/sanityStore";
-import imageUrlBuilder from "@sanity/image-url";
+import { useState } from "react";
 import { PortableText } from "@portabletext/react";
+import useProjectHook from "../hook/useProjectHook";
+import { projectsStore } from "../store/projectsStore";
+import imageUrlBuilder from "@sanity/image-url";
+import { client } from "../sanity/client";
 import { RxCode } from "react-icons/rx";
-import { GoRepo, GoDeviceDesktop } from "react-icons/go";
-
-const POSTS_QUERY = `*[
-  _type == "post"
-  && defined(slug.current)
-]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt, image,repoLink,demoLink,language,tags,body}`;
+import { FolderGit2, MonitorPlay } from "lucide-react";
 
 const builder = imageUrlBuilder(client);
 
 const Projects = () => {
-  const posts = sanityStore((state) => state.posts);
-  const setPosts = sanityStore((state) => state.setPosts);
+  useProjectHook();
+  const posts = projectsStore((state) => state.posts);
 
   const [hoveredRepo, setHoveredRepo] = useState(null);
   const [hoveredDemo, setHoveredDemo] = useState(null);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const data = await client.fetch(POSTS_QUERY);
-      setPosts(data);
-    };
-    fetchPosts();
-  }, [setPosts]);
-
   return (
-    <section className="wrapper LG mt-8 mb-80" id="projects">
+    <section className="wrapper LG mt-8 mb-10" id="projects">
       <h2 className="mb-3 text-center text-2xl underline decoration-3 underline-offset-12 lg:text-start">
         Personal Projects
       </h2>
@@ -60,7 +48,7 @@ const Projects = () => {
                   onMouseEnter={() => setHoveredRepo(post._id)}
                   onMouseLeave={() => setHoveredRepo(null)}
                 >
-                  <GoRepo className="size-7 transition-all duration-200 ease-in-out hover:scale-75" />
+                  <FolderGit2 className="size-7 transition-all duration-200 ease-in-out hover:scale-75" />
                   {hoveredRepo === post._id && (
                     <div className="bg-retroCream dark:bg-base-dark absolute top-9 w-[63px] rounded-lg py-1 text-center text-xs shadow">
                       <p>Git Repo</p>
@@ -74,7 +62,7 @@ const Projects = () => {
                   onMouseEnter={() => setHoveredDemo(post._id)}
                   onMouseLeave={() => setHoveredDemo(null)}
                 >
-                  <GoDeviceDesktop className="size-7 transition-all duration-200 ease-in-out hover:scale-75" />
+                  <MonitorPlay className="size-7 transition-all duration-200 ease-in-out hover:scale-75" />
                   {hoveredDemo === post._id && (
                     <p className="bg-retroCream dark:bg-base-dark absolute top-9 m-auto rounded-lg px-2 py-1 text-xs shadow">
                       Demo

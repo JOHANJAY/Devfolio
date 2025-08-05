@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import LandingPageLayout from "./Layout/LandingPageLayout";
 import App from "./App";
 import Projects from "./components/Projects";
+import Tools from "./components/Tools";
 
 
 export const router = createBrowserRouter([
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
       {
         path: "projects",
         element: <Projects />,
+      },
+      {
+        path: "tools",
+        element: <Tools />,
       },
     ],
   },

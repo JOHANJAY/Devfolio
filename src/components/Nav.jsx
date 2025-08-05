@@ -11,7 +11,7 @@ import {
 } from "react-icons/hi2";
 import { RxPerson, RxCode, RxInfoCircled } from "react-icons/rx";
 import { FiTool } from "react-icons/fi";
-import { motion, AnimatePresence } from "framer-motion";
+
 
 const Nav = () => {
   const { isOpen, toggleNav } = useNavStore();
@@ -31,7 +31,7 @@ const Nav = () => {
     {
       icon: <FiTool className="text-2xl" />,
       label: "Tools",
-      to: "/Tools",
+      to: "tools",
     },
     {
       icon: <RxInfoCircled className="text-2xl" />,
@@ -58,8 +58,8 @@ const Nav = () => {
             to={link.to}
             key={index}
             smooth={true}
-            duration={500}
-            offset={-20}
+            duration={300}
+            // offset={-20}
             className="hover:bg-base-light dark:hover:bg-base-dark flex w-full items-center space-x-2 rounded-xl px-2.5 py-1.5"
             activeClass="font-bold"
             spy={true}
@@ -99,14 +99,14 @@ const Nav = () => {
         )}
       </button>
       {isOpen && (
-        <div className="bg-retroBlue dark:bg-retroBlue-2 font-body text-text-dark dark:text-text-light fixed top-16 right-4 z-40 flex h-56 flex-col space-y-4 rounded-2xl p-4 lg:hidden">
+        <div className="bg-retroBlue dark:bg-retroBlue-2 font-body text-text-dark dark:text-text-light fixed top-16 right-4 z-40 flex h-68 flex-col space-y-4 rounded-2xl p-4 lg:hidden">
           {navLinks.map((link, index) => (
             <ScrollLink
               to={link.to}
               key={index}
               smooth={true}
-              duration={500}
-              offset={-20}
+              duration={300}
+              // offset={-20}
               className="hover:bg-base-light dark:hover:bg-base-dark flex w-full items-center space-x-2 rounded-xl px-2.5 py-1.5"
               activeClass="font-bold"
               spy={true}
@@ -117,7 +117,7 @@ const Nav = () => {
           ))}
           <div
             onClick={toggleTheme}
-            className={`bg-base-light dark:bg-base-dark relative flex items-center gap-4 ${isOpen ? "w-20 flex-row" : "h-16 flex-col"} rounded-xl px-1 py-1.5 transition-all duration-300`}
+            className={`bg-base-light dark:bg-base-dark relative flex items-center gap-4 ${isOpen ? "w-20 flex-row" : "h-16 flex-col"} rounded-xl px-1 py-1.5 transition-all duration-300 ml-3`}
           >
             <div
               className={`bg-retroBlue dark:bg-retroBlue-2 ${isOpen ? "" : "hidden"} absolute top-1/2 left-2 flex h-5 w-5 -translate-y-1/2 transform items-center justify-center transition-all duration-300 ${isDark ? "translate-x-12" : "-translate-x-1"} rounded-full`}
