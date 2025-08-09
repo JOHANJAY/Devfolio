@@ -27,7 +27,7 @@ const Tools = () => {
 
     return (
       <div className="">
-        <div className="bg-retroBlue dark:bg-retroBlue-2 flex flex-wrap gap-6 rounded-lg py-5 px-5 lg:pb-48">
+        <div className="bg-retroBlue dark:bg-retroBlue-2 grid grid-cols-2 md:flex flex-wrap h-140 lg:h-auto gap-6 rounded-lg py-5 px-5 lg:pb-48">
           {toolsArray.map((tool, index) => (
             <div
               key={`${tool.name}-${index}`}
