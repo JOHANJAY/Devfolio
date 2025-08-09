@@ -21,7 +21,7 @@ const Projects = () => {
       <h2 className="mb-3 text-center text-2xl underline decoration-3 underline-offset-12 lg:text-start">
         Personal Projects
       </h2>
-      <ul className="mt-4 flex grid-cols-2 flex-col gap-y-4 lg:grid">
+      <ul className="mt-4 flex grid-cols-2 flex-col gap-y-4 lg:grid gap-5">
         {posts.map((post) => (
           <li
             className="bg-retroBlue dark:bg-retroBlue-2 mx-auto gap-5 rounded-xl p-3 md:w-96 lg:flex lg:w-full"
@@ -32,7 +32,7 @@ const Projects = () => {
                 <img
                   src={builder.image(post.image).url()}
                   alt={post.title}
-                  className="mb-2 rounded-lg"
+                  className="mb-2 rounded-lg object-cover "
                 />
               )}
               <div className="bg-retroCream dark:bg-base-dark mb-3 inline-flex items-center gap-2 rounded-lg px-3">

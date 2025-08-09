@@ -23,13 +23,17 @@ export default function useToolsHook() {
           }
         }`;
 
+        const DEBUG_QUERY = `*[_type == "tools"][0]`;
+        const debugData = await client.fetch(DEBUG_QUERY);
+        console.log("Raw Sanity data:", debugData);
+
         const data = await client.fetch(TOOLS_QUERY);
         if (data) {
           setTools(data);
-          console.log('Tools fetched:', data);
+          console.log("Tools fetched:", data);
         }
       } catch (error) {
-        console.error('Error fetching tools:', error);
+        console.error("Error fetching tools:", error);
       }
     };
 

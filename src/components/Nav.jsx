@@ -33,11 +33,6 @@ const Nav = () => {
       label: "Tools",
       to: "tools",
     },
-    {
-      icon: <RxInfoCircled className="text-2xl" />,
-      label: "About",
-      to: "/About",
-    },
   ];
 
   return (

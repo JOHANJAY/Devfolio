@@ -4,7 +4,7 @@ import { tabsStore } from "../store/tabsStore";
 
 const tabConfig = [
   { key: "Frontend", label: "Frontend", dataKey: "frontend" },
-  { key: "Backend", label: "Backend", dataKey: "frontend" },
+  { key: "Backend", label: "Backend", dataKey: "backend" },
   { key: "Devtools", label: "Devtools", dataKey: "devtools" },
 ];
 
@@ -52,7 +52,7 @@ const Tools = () => {
   };
 
   return (
-    <section className="wrapper LG mt-8" id="tools">
+    <section className="wrapper LG mt-8 mb-10" id="tools">
       <h2 className="mb-8 text-center text-2xl underline decoration-3 underline-offset-12 lg:text-start">
         My Tools
       </h2>
